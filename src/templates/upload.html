@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload</title>
+    <!-- CSS{{url_for('static',filename='css/bootstrap.min.css') }} -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css1/bootstrap1.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css1/styles.css') }}">
+    <!-- bootstrap scripts -->
+    <script src="{{url_for('static',filename='js11/slimmin.js') }}"></script>
+    <script src="{{url_for('static',filename='js11/poppermin.js')}}"></script>
+    <script src="{{url_for('static',filename='js11/bootstrapmin.js')}}"></script>
+    <!-- font awesome -->
+    <script src="{{url_for('static',filename='js11/fontawsome.js')}}"></script>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="{{url_for('static',filename='css1/fonts.css') }}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css1/fonts2.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='css1/fonts.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/jumbotron.css') }}"> -->
+
+</head>
+
+<body>
+    <section class="colored-section" id="title">
+        <div class="container-fluid">
+            <!-- Nav Bar -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html"><img
+                        src="{{url_for('static',filename='images/logo1.jpg') }}"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./About.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">More</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <div class="container" id="outer">
+                <div class="header clearfix">
+
+                    <h3 class="text-muted">NCE College Admission Form Extraction</h3>
+
+                </div>
+                <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file-picker">File Input</label><br>
+                        <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+                        <p class="help-block">Supported Image are '.png', 'jpg'</p>
+                        <div id="msg" style="color: blue;font-size: 20px"></div>
+                        <!-- <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsPrediction" id="withoutLM" value="bestPath" checked>
+                                Only use Best Path Decoding &mdash;fast prediction but not be accurate
+                            </label>
+                        </div> -->
+                        <button type="submit" value="Upload" id="upload-button" class="btn btn-primary">Submit</button>
+                        <!-- <button type="finish" value="Complete" id="finish-button" class="btn btn-primary">Finish</button> -->
+                    </div>
+
+                </form>
+
+
+
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    $("#file-picker").change(function () {
+        var input = document.getElementById('file-picker');
+        for (var i = 0; i < input.files.length; i++) {
+            //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext = input.files[i].name.substring(input.files[i].name.lastIndexOf('.') + 1).toLowerCase()
+            if ((ext == 'jpg') || (ext == 'png')) {
+                $("#outer #msg").text("Files are supported")
+            }
+            else {
+                $("#outer #msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value = "";
+            }
+        }
+    });
+</script>
+
+<footer>
+    <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</footer>
+
+</html>

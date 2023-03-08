@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>FORM</title>
+  <!-- CSS{{url_for('static',filename='css/bootstrap.min.css') }} -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css1/bootstrap1.css') }}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css1/styles.css') }}">
+  <!-- bootstrap scripts -->
+  <script src="{{url_for('static',filename='js11/slimmin.js') }}"></script>
+  <script src="{{url_for('static',filename='js11/poppermin.js')}}"></script>
+  <script src="{{url_for('static',filename='js11/bootstrapmin.js')}}"></script>
+  <!-- font awesome -->
+  <script src="{{url_for('static',filename='js11/fontawsome.js')}}"></script>
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="{{url_for('static',filename='css1/fonts.css') }}" rel="stylesheet">
+  <link href="{{url_for('static',filename='css1/fonts2.css') }}" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='css1/fonts.css') }}">
+</head>
+
+<body>
+
+  <section class="colored-section" id="title">
+    <!-- container for  header -->
+    <div class="container-fluid">
+
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html"><img src="{{url_for('static',filename='images/logo1.jpg') }}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./About.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">More</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+
+      <!-- Title -->
+
+      <div class="row">
+        <!--<div class="vertical"></div>-->
+        <div class="col-lg-6 col-md-12">
+
+          <h3 class="big-heading">Extract Data From NCE Admission Form </h3>
+
+          <button type="button" class="btn btn-dark btn-lg downloadcolor-button "><i class="fa fa-check-square-o"
+              aria-hidden="true"></i>
+            Lets Go!</button>
+
+          <!-- <button type="button" class="btn btn-outline-light btn-lg download-button"><i class="fa fa-check-square"
+              aria-hidden="true"></i>
+            Extract</button> -->
+          <a class="btn btn-lg download-button" href="upload_page" role="button"><i class="fa fa-check-square"
+              aria-hidden="true"></i>Extract</a>
+
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+          <img class="title-img" src="{{url_for('static',filename='images/form1.png') }}">
+        </div>
+      </div>
+
+  </section>
+
+
+  <!-- Features -->
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+
+  <footer class="white-section" id="footer">
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fas fa-envelope"></i>
+
+    <p>© Copyright 2022 FORM</p>
+
+  </footer>
+
+
+</body>
+
+</html>
