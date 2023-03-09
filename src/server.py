@@ -70,18 +70,18 @@ def handle_request():
 @app.route('/download_csv')
 def download_csv():
     # Replace 'path/to/your/csv/file.csv' with the actual path to your CSV file
-    return send_file('D:\MajorProject-master\src\output.csv', as_attachment=True)
+    return send_file('D:/Ranjila Main/Backend-SimpleHTR/src/output.csv', as_attachment=True)
 
 
-input_file_path = "D:/Ranjila Main/Backend-SimpleHTR/src/output.csv"
+# input_file_path = "D:/Ranjila Main/Backend-SimpleHTR/src/output.csv"
 
-with open(input_file_path, newline='') as input_file:
-    reader = csv.reader(input_file)
-    header_row = next(reader)
-    input_file.seek(0)  # reset file pointer to beginning of file
-    with open(input_file_path, 'w', newline='') as output_file:
-        writer = csv.writer(output_file)
-        writer.writerow(header_row)
+# with open(input_file_path, newline='') as input_file:
+#     reader = csv.reader(input_file)
+#     header_row = next(reader)
+#     input_file.seek(0)  # reset file pointer to beginning of file
+#     with open(input_file_path, 'w', newline='') as output_file:
+#         writer = csv.writer(output_file)
+#         writer.writerow(header_row)
 
 
 

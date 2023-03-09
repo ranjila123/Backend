@@ -8,7 +8,7 @@ from main import load_different_image, main
 import os
 
 per = 75
-pixelThreshold = 150
+pixelThreshold = 1000
 
 
 #####For Ranjus Printer########  # 
@@ -131,53 +131,53 @@ def segment():
      
 
 
+        os.remove(path + "/" + myPicList[0])
 
-
-    #     myDataFormValidation = []
-    #     print(f'#################Extracting Data from Form## Form Validation#########')
-    #     for x, r in enumerate(roi4):
-    #         cv2.rectangle(imgMask, ((r[0][0]), r[0][1]), ((r[1][0]), r[1][1]), (0, 255, 0), cv2.FILLED)
-    #         imgShow = cv2.addWeighted(imgShow, 0.99, imgMask, 0.1, 0)
-    #         # imgShow = cv2.resize(imgShow,(w//7 , h//7))
-    #         # cv2.imshow("Validation",imgShow)
+        myDataFormValidation = []
+        print(f'#################Extracting Data from Form## Form Validation#########')
+        for x, r in enumerate(roi4):
+            cv2.rectangle(imgMask, ((r[0][0]), r[0][1]), ((r[1][0]), r[1][1]), (0, 255, 0), cv2.FILLED)
+            imgShow = cv2.addWeighted(imgShow, 0.99, imgMask, 0.1, 0)
+            # imgShow = cv2.resize(imgShow,(w//7 , h//7))
+            # cv2.imshow("Validation",imgShow)
             
-    #         imgCrop = imgScan[r[0][1]:r[1][1], r[0][0]:r[1][0]]
-    #         # cv2.imshow(str(x), imgCrop)
+            imgCrop = imgScan[r[0][1]:r[1][1], r[0][0]:r[1][0]]
+            # cv2.imshow(str(x), imgCrop)
         
 
-    #         if r[2] == 'text':
-    #             print('{}:{}'.format(r[3], pytesseract.image_to_string(imgCrop)))
-    #             myDataFormValidation.append(pytesseract.image_to_string(imgCrop))
+            if r[2] == 'text':
+                print('{}:{}'.format(r[3], pytesseract.image_to_string(imgCrop)))
+                myDataFormValidation.append(pytesseract.image_to_string(imgCrop))
     
-    # # Driver code to call a function
-    # usr_str1 = 'National College of Engineering'
-    # usr_str2 = myDataFormValidation[0]
-    # output1 = difference(usr_str1, usr_str2)
-    # print(output1)
+    # Driver code to call a function
+    usr_str1 = 'National College of Engineering'
+    usr_str2 = myDataFormValidation[0]
+    output1 = difference(usr_str1, usr_str2)
+    print(output1)
 
-    # usr_str3 = 'ACADEMIC DETAILS'
-    # usr_str4 = myDataFormValidation[1]
-    # output2 = difference(usr_str3, usr_str4)
-    # print(output2)
+    usr_str3 = 'ACADEMIC DETAILS'
+    usr_str4 = myDataFormValidation[1]
+    output2 = difference(usr_str3, usr_str4)
+    print(output2)
 
-    # usr_str5 = 'PERSONAL DETAILS'
-    # usr_str6 = myDataFormValidation[2]
-    # output3 = difference(usr_str5, usr_str6)
-    # print(output3)
+    usr_str5 = 'PERSONAL DETAILS'
+    usr_str6 = myDataFormValidation[2]
+    output3 = difference(usr_str5, usr_str6)
+    print(output3)
 
-    # usr_str7 = 'Zone'
-    # usr_str8 = myDataFormValidation[3]
-    # output4 = difference(usr_str7, usr_str8)
-    # print(output4)
+    usr_str7 = 'Zone'
+    usr_str8 = myDataFormValidation[3]
+    output4 = difference(usr_str7, usr_str8)
+    print(output4)
 
-    # usr_str9 = 'District'
-    # usr_str10 = myDataFormValidation[4]
-    # output5 = difference(usr_str9, usr_str10)
-    # print(output5)
+    usr_str9 = 'District'
+    usr_str10 = myDataFormValidation[4]
+    output5 = difference(usr_str9, usr_str10)
+    print(output5)
 
 
 
-    # if(output1>0.5 and output2>0.5 and output3>0.5):
+    if(output1>0.5 and output2>0.5 and output3>0.5):
         print("Right form")
         myData = []
         print(f'#################Extracting Data from Form ###########')
@@ -200,9 +200,9 @@ def segment():
                 
             if r[2] == 'Box':
                 imgGray = cv2.cvtColor(imgCrop, cv2.COLOR_BGRA2GRAY)
-                imgThresh = cv2.threshold(imgGray, 20, 255, cv2.THRESH_BINARY_INV)[1]
+                imgThresh = cv2.threshold(imgGray, 170, 255, cv2.THRESH_BINARY_INV)[1]
                 totalPixels = cv2.countNonZero(imgThresh)
-                    #print(totalPixels)
+                print(totalPixels)
                 if totalPixels > pixelThreshold : totalPixels = 1;
                 else:totalPixels = 0
                 print(f'{r[3]}:{totalPixels}')

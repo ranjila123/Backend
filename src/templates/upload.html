@@ -3,6 +3,7 @@
 
 <head>
     <title>Upload</title>
+    <link rel="icon" type="image/x-icon" href="D:/Ranjila Main/Backend-SimpleHTR/src/static/images/favicon.ico">
     <!-- CSS{{url_for('static',filename='css/bootstrap.min.css') }} -->
     <link rel="stylesheet" href="{{url_for('static',filename='css1/bootstrap1.css') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='css1/styles.css') }}">
@@ -23,7 +24,7 @@
 
 </head>
 
-<body>
+<body style="background-color: aliceblue;">
     <section class="colored-section" id="title">
         <div class="container-fluid">
             <!-- Nav Bar -->
@@ -51,17 +52,22 @@
                 </div>
             </nav>
 
-
             <div class="container" id="outer">
                 <div class="header clearfix">
 
                     <h3 class="text-muted">NCE College Admission Form Extraction</h3>
+                    <div class="col-lg-6 col-md-12" style=" position: absolute;right: 150px;width: 400px; height: 200px;border: 3px solid green;">
+                        <h3>Instructions</h3>
+                        <h6>1. Select only one image at a time. Make sure it is NCE Admission Form</h6>
+                        <h6>2. After selecting image, click on Upload.</h6>
+                        <h6>3. Once you have finished uploading your required images, click on Download button.</h6>
+                    </div>
 
                 </div>
                 <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="file-picker">File Input</label><br>
-                        <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+                        <input id="file-picker" type="file" name="file" accept="image/*">
                         <p class="help-block">Supported Image are '.png', 'jpg'</p>
                         <div id="msg" style="color: blue;font-size: 20px"></div>
                         <!-- <div class="radio">
@@ -70,14 +76,20 @@
                                 Only use Best Path Decoding &mdash;fast prediction but not be accurate
                             </label>
                         </div> -->
-                        <button type="submit" value="Upload" id="upload-button" class="btn btn-primary">Submit</button>
+                        <button type="submit" value="Upload" id="upload-button" class="btn btn-primary">Upload</button>
                         <!-- <button type="finish" value="Complete" id="finish-button" class="btn btn-primary">Finish</button> -->
                     </div>
 
                 </form>
-
-
-
+                <div class="container-fluid">
+                    <div class="row">
+                      <!--<div class="vertical"></div>-->
+                      <div class="col">
+                            <a class="btn btn-lg download-button " href="{{ url_for('download_file') }}" role="button">Download</a>
+                      </div>
+                    </div>
+                    
+                  </div> 
             </div>
         </div>
     </section>

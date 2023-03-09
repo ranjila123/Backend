@@ -2,8 +2,8 @@ import os
 from datetime import datetime
 from flask import Flask, request, render_template, send_file
 from main import infer_by_web
-# from ScannedSegmentation import segment
-from segment0220 import segment
+from ScannedSegmentation import segment
+# from segment0220 import segment
 import csv
 
 __author__ = 'Romu'
@@ -52,8 +52,13 @@ def upload():
         upload.save(destination)
         segment()
         result = True
+    return render_template("upload.html")
 
-    return render_template("complete.html", image_name=savefname, result=result)
+    
+# @app.route("/finish")
+# def finish():
+
+#     return render_template("complete.html", image_name=savefname, result=result)
 
 # @app.route('/finish')
 # def finish():
@@ -62,7 +67,7 @@ def upload():
 
 
 
-@app.route('/download')
+@app.route('/finish')
 def download_file():
 	path = "D:/Ranjila Main/Backend-SimpleHTR/src/output.csv"
 	#path = "sample.txt"
