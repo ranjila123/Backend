@@ -3,10 +3,11 @@ from datetime import datetime
 from flask import Flask, request, render_template, send_file
 from main import infer_by_web
 from ScannedSegmentation import segment
+from flask import flash
 # from segment0220 import segment
 import csv
 
-
+__author__ = 'Romu'
 
 app = Flask(__name__)
 
@@ -18,13 +19,6 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__)) # project abs path
 def index():
     return render_template("index.html")
 
-@app.route("/About_page", methods=["GET"])
-def About_page():
-    return render_template("about.html")
-
-@app.route("/contact_page", methods=["GET"])
-def contact_page():
-    return render_template("contact.html")
 
 @app.route("/upload_page", methods=["GET"])
 def upload_page():
@@ -59,6 +53,7 @@ def upload():
         upload.save(destination)
         segment()
         result = True
+        flash('This is an alert message')
     return render_template("upload.html")
 
     
@@ -76,15 +71,12 @@ def upload():
 
 @app.route('/finish')
 def download_file():
-	# path = "C:/Users/Monika/Downloads/MajorProject-master/src/output.csv"
-
-    path = "D:/Ranjila Main/Backend-SimpleHTR/src/outputWeb.csv"
+	path = "D:/Ranjila Main/Backend-SimpleHTR/src/output.csv"
 	#path = "sample.txt"
-    return send_file(path, as_attachment=True)
+	return send_file(path, as_attachment=True)
 
 
-input_file_path = "D:/Ranjila Main/Backend-SimpleHTR/src/outputWeb.csv"
-# input_file_path = "C:/Users/Monika/Downloads/MajorProject-master/src/output.csv"
+input_file_path = "D:/Ranjila Main/Backend-SimpleHTR/src/output.csv"
 
 with open(input_file_path, newline='') as input_file:
     reader = csv.reader(input_file)

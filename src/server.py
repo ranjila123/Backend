@@ -14,8 +14,8 @@ from flask import send_file
 # from flask import send_file, current_app as app
 # from flask import send_from_directory, current_app as app
 
-# from segment0220 import segment
-from ScannedSegmentation import segment
+from segment0220 import segment
+# from ScannedSegmentation import segment
 
 app = flask.Flask(__name__)
 
@@ -91,3 +91,23 @@ app.run(host="0.0.0.0", port=8000, debug=True)
 
 
 
+# import csv
+
+# def remove_rows(input_file, output_file):
+#     # Open the input CSV file for reading
+#     with open(input_file, 'r') as csv_in:
+#         # Open the output CSV file for writing
+#         with open(output_file, 'w', newline='') as csv_out:
+#             # Create a CSV reader and writer objects
+#             reader = csv.reader(csv_in)
+#             writer = csv.writer(csv_out)
+
+#             # Read and write the header row
+#             header = next(reader)
+#             writer.writerow(header)
+
+#             # Loop through the remaining rows and write them to the output file
+#             for row in reader:
+#                 writer.writerow(row)
+
+#     print("Rows removed successfully!")

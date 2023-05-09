@@ -79,7 +79,7 @@ class Model:
 
     def setup_rnn(self) -> None:
         """Create RNN layers."""
-        rnn_in3d = tf.squeeze(self.cnn_out_4d, axis=[2])
+        rnn_in3d = tf.squeeze(self.cnn_out_4d, axis=[2])       #(250,64,256)
 
         # basic cells which is used to build RNN
         num_hidden = 256

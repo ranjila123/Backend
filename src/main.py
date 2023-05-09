@@ -157,26 +157,46 @@ def load_different_image():
 
 def infer(model: Model, fn_img: Path) -> None:
     """Recognizes text in image provided by file path."""
-    img = cv2.imread(fn_img, cv2.IMREAD_GRAYSCALE)
-    assert img is not None
+    # img = cv2.imread(fn_img, cv2.IMREAD_GRAYSCALE)
+    # assert img is not None
 
     preprocessor = Preprocessor(get_img_size(), dynamic_width=True, padding=16)
-    img = preprocessor.process_img(img)
+    # img = preprocessor.process_img(img)
 
     imgs = load_different_image()
     # img = img.tolist()
     
     recognizedFromInfer=[]
+    counter = 0
     for i in imgs:
+         counter = counter+1
          batch = Batch([i], None, 1)
          recognized, probability = model.infer_batch(batch, True)
          correct_string = recognized[0]
-         correct = correct_sentence(correct_string)
-         print(recognized)
+         
+        #  print(recognized)
          print(f'Recognized: "{recognized}"')
-         print(f'Corrected: "{correct}"')
+        #  print(f'Corrected: "{correct}"')
          print(f'Probability: {probability}')
-         recognizedFromInfer.append(correct)
+         if (counter==9):
+            correct = correct_sentence(correct_string)
+            # recognizedFromInfer.append(correct)
+            new_string = correct.replace(",", "")
+            print(new_string)
+            recognizedFromInfer.append(new_string)
+
+         elif (counter ==14):
+            correct = correct_sentence(correct_string)
+            # recognizedFromInfer.append(correct)
+            new_string = correct.replace(",", "")
+            print(new_string)
+            recognizedFromInfer.append(new_string)
+
+         else: 
+            new_string = correct_string.replace(",", "")
+            print(new_string)
+            recognizedFromInfer.append(new_string)
+
          
     return recognizedFromInfer    
 

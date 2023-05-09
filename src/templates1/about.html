@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>About</title>
-    <!-- CSS
+    <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <!-- bootstrap scripts -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -17,33 +17,17 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
     <!-- font awesome -->
-    <!-- <script src="https://kit.fontawesome.com/cded9f3d20.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/cded9f3d20.js" crossorigin="anonymous"></script>
 
     <!-- Google fonts -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Ubuntu:wght@300&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-     --> -->
 
-    <!-- CSS{{url_for('static',filename='css/bootstrap.min.css') }} -->
-    <link rel="stylesheet" href="{{url_for('static',filename='css1/bootstrap1.css') }}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css1/styles.css') }}">
-    <!-- bootstrap scripts -->
-    <script src="{{url_for('static',filename='js11/slimmin.js') }}"></script>
-    <script src="{{url_for('static',filename='js11/poppermin.js')}}"></script>
-    <script src="{{url_for('static',filename='js11/bootstrapmin.js')}}"></script>
-    <!-- font awesome -->
-    <script src="{{url_for('static',filename='js11/fontawsome.js')}}"></script>
-
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="{{url_for('static',filename='css1/fonts.css') }}" rel="stylesheet">
-    <link href="{{url_for('static',filename='css1/fonts2.css') }}" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='css1/fonts.css') }}">
 </head>
 
 <body>
@@ -52,10 +36,9 @@
         <!-- container for  header -->
         <div class="container-fluid">
 
-
             <!-- Nav Bar -->
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="/"><img src="{{url_for('static',filename='images/logo1.jpg') }}"></a>
+                <a class="navbar-brand" href="index.html"><img src=" ./images/logo1.jpg"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -63,12 +46,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact_page" role="button">Contact Us</a>
+                            <a class="nav-link" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="About_page">About</a>
+                            <a class="nav-link" href="./About.html">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">More</a>

@@ -10,7 +10,7 @@ class preprocess:
         self.img = img
 
     
-    def remove_lines(self, img):
+    def remove_lines():
         imgs=[]
         for i in range(0, 29):
             list=[6,8,14,15,16,22,23,25,26,27,28]
@@ -149,15 +149,9 @@ class preprocess:
     
     def preprocess(self, img):
 
-
-        img = self.cv2.imread('D:/Urja/Major_Project/input/6.png', 0)
+        img = self.cv2.imread('D:\Ranjila Main\Backend-SimpleHTR\croppedDir\cropped_0.png', 0)
         #cv2.imshow('pre',img)
         _, img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        width = 1136
-        height = 850
-        resized_img = cv2.resize(img, (width, height))
-
-
         alpha = 1.5 # contrast control
         beta = 0 # brightness control
         new_image = cv2.convertScaleAbs(img, alpha=alpha, beta=beta)

@@ -29,7 +29,8 @@
         <div class="container-fluid">
             <!-- Nav Bar -->
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index"><img src="{{url_for('static',filename='images/logo1.jpg') }}"></a>
+                <a class="navbar-brand" href="index.html"><img
+                        src="{{url_for('static',filename='images/logo1.jpg') }}"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,12 +38,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact_page">Contact Us</a>
+                            <a class="nav-link" href="contact.html">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="About_page">About</a>
+                            <a class="nav-link" href="./About.html">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">More</a>
@@ -52,48 +53,46 @@
             </nav>
 
             <div class="container" id="outer">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h3 class="text-muted">NCE College Admission Form Extraction</h3>
-                        <form id="upload-form" action="{{ url_for('upload') }}" method="POST"
-                            enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="file-picker">File Input</label><br>
-                                <input id="file-picker" type="file" name="file" accept="image/*">
-                                <p class="help-block">Supported Image are '.png', 'jpg'</p>
-                                <div id="msg" style="color: blue;font-size: 20px"></div>
-                                <!-- <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsPrediction" id="withoutLM" value="bestPath" checked>
-                                        Only use Best Path Decoding &mdash;fast prediction but not be accurate
-                                    </label>
-                                </div> -->
-                                <button type="submit" value="Upload" id="upload-button"
-                                    class="btn btn-primary">Upload</button>
-                                <!-- <button type="finish" value="Complete" id="finish-button" class="btn btn-primary">Finish</button> -->
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-6">
-                        <div style="border: 3px solid green;">
-                            <h3>Instructions</h3>
-                            <h6>1. Select only one image at a time. Make sure it is NCE Admission Form</h6>
-                            <h6>2. After selecting image, click on Upload.</h6>
-                            <h6>3. Once you have finished uploading your required images, click on Download button.</h6>
-                            <h6>4. Only download after uploading all images.</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 50px;">
-                    <div class="col">
-                        <a class="btn btn-lg download-button " href="{{ url_for('download_file') }}"
-                            role="button">Download </a>
-                    </div>
-                </div>
+                <div class="header clearfix">
 
-            </div>
+                    <h3 class="text-muted">NCE College Admission Form Extraction</h3>
+                    <div class="col-lg-6 col-md-12" style=" position: absolute;right: 150px;width: 400px; height: 200px;border: 3px solid green;">
+                        <h3>Instructions</h3>
+                        <h6>1. Select only one image at a time. Make sure it is NCE Admission Form</h6>
+                        <h6>2. After selecting image, click on Upload.</h6>
+                        <h6>3. Once you have finished uploading your required images, click on Download button.</h6>
+                        <h6>4. Only download after finishing.</h6>
+                    </div>
 
-            <!-- {% block content %}
+                </div>
+                <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file-picker">File Input</label><br>
+                        <input id="file-picker" type="file" name="file" accept="image/*">
+                        <p class="help-block">Supported Image are '.png', 'jpg'</p>
+                        <div id="msg" style="color: blue;font-size: 20px"></div>
+                        <!-- <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsPrediction" id="withoutLM" value="bestPath" checked>
+                                Only use Best Path Decoding &mdash;fast prediction but not be accurate
+                            </label>
+                        </div> -->
+                        <button type="submit" value="Upload" id="upload-button" class="btn btn-primary">Upload</button>
+                        <!-- <button type="finish" value="Complete" id="finish-button" class="btn btn-primary">Finish</button> -->
+                    </div>
+
+                </form>
+                <div class="container-fluid">
+                    <div class="row">
+                      <!--<div class="vertical"></div>-->
+                      <div class="col">
+                            <a class="btn btn-lg download-button " href="{{ url_for('download_file') }}" role="button">Download</a>
+                      </div>
+                    </div>
+                    
+                  </div> 
+
+                  <!-- {% block content %}
 <div class="container">
             {% for message in get_flashed_messages() %}
             <div class="alert alert-warning">
@@ -107,7 +106,7 @@
         {% endblock %} -->
 
 
-        </div>
+            </div>
         </div>
     </section>
 </body>

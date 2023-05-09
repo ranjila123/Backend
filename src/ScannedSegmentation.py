@@ -22,40 +22,37 @@ roi4 = [[(925, 350), (3740, 580), 'text', 'National College of Engineering'],
         [(258, 4875), (1245, 5015), 'text', 'PERSONAL DETAILS'],
         [(3003, 6385), (3255, 6510), 'text', 'Zone'],
         [(320, 6405), (635, 6530), 'text', 'District']]
-
-
-
     # [(1140, 5450), (2200, 5585), 'text', 'DOB'], 
     # [(3190, 5450), (4123, 5575), 'text', 'DOBAD'],
         # [(2510, 5865), (4300, 5980), 'text', 'Email'],
 
 # for Scan
-roi=[[(767, 2908), (1685, 3015), 'text', 'rollno'],
+roi=[[(767, 2908), (1680, 3015), 'text', 'rollno'],
     [(2110, 2900), (2750, 3017), 'text', 'Rank'],
     [(3350, 2900), (4300, 3015), 'text', 'Score'],
-    [(870, 3333), (1680, 3448), 'text', 'SymbolNo.'],
+    [(875, 3335), (1680, 3448), 'text', 'SymbolNo.'],
     [(2230, 3345), (3050, 3455), 'text', 'PassedYEAR2'],
     [(3670, 3340), (4300, 3450), 'text', 'GPA2'],
-    [(870, 3495), (1680, 3615), 'text', 'Board2'],
-    [(3390,3492), (4315, 3610), 'text', 'ExtraMaths'],
-    [(1040, 3663), (4300, 3785), 'text', 'Institite/College'],
-    [(1000, 3908), (1085, 3995), 'Box', 'GovermentSEE'], 
+    [(880, 3495), (1680, 3615), 'text', 'Board2'],
+    [(3390,3492), (4305, 3610), 'text', 'ExtraMaths'],
+    [(1045, 3663), (4300, 3785), 'text', 'Institite/College'],
+    [(1010, 3908), (1085, 3995), 'Box', 'GovermentSEE'], 
     [(1875, 3908), (1955, 3995), 'Box', 'PrivateSEE'],
-    [(870, 4110), (1680, 4225), 'text', 'SymbolNo1'],
+    [(880, 4110), (1680, 4225), 'text', 'SymbolNo1'],
     [(2230, 4110), (3050, 4225), 'text', 'Passed year1'], 
     [(3740, 4110), (4300, 4225), 'text', 'GPA/PER1'],
-    [(870, 4273), (1685, 4395), 'text', 'Board1'],
-    [(2130, 4270), (4300, 4395), 'text', 'School'],
+    [(880, 4273), (1680, 4395), 'text', 'Board1'],
+    [(2130, 4275), (4300, 4395), 'text', 'School'],
     [(1150, 5120), (4300, 5238), 'text', 'Name'],
-    [(1140, 5643), (1267, 5771), 'Box', 'Male'], 
+    [(1145, 5643), (1267, 5771), 'Box', 'Male'], 
     [(1490, 5643), (1625,  5771), 'Box', 'Female'],
-    [(865, 5865), (1835, 5985), 'text', 'Contact'], 
-    [(1300, 6191), (2460, 6310), 'text', 'Municipality'], 
-    [(2840, 6186), (3030, 6305), 'text', 'Wardno'], 
-    [(3345, 6186), (4315, 6305), 'text', 'Tole'],
+    [(880, 5865), (1830, 5985), 'text', 'Contact'], 
+    [(1300, 6191), (2455, 6310), 'text', 'Municipality'], 
+    [(2840, 6186), (3025, 6305), 'text', 'Wardno'], 
+    [(3345, 6186), (4305, 6305), 'text', 'Tole'],
     [(630, 6386), (1635, 6500), 'text', 'District'], 
     [(1985,  6380), (2890, 6495), 'text', 'Province'], 
-    [(3255,  6375), (4310, 6495), 'text', 'Zone'],
+    [(3255,  6375), (4305, 6495), 'text', 'Zone'],
     [(302, 1830), (435, 1970), 'Box', 'Civil'], 
     [(1475,  1830), (1605, 1970), 'Box', 'Electrical'], 
     [(302, 2000), (435, 2138), 'Box', 'Computer'], 
@@ -177,7 +174,7 @@ def segment():
 
 
 
-    if(output1>0.5 and output2>0.5 and output3>0.5):
+    if(output1>0.5 and output2>0.5 and output3>0.5 and output4>0.5 and output5>0.5):
         print("Right form")
         myData = []
         print(f'#################Extracting Data from Form ###########')
@@ -258,7 +255,7 @@ def segment():
         print(list)
         # list = recognized + myData
 
-        with open('output.csv', 'a+') as f:
+        with open('outputWeb.csv', 'a+') as f:
             for data in list:
                 f.write((str(data)+','))
             f.write('\n')
